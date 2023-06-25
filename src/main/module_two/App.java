@@ -47,7 +47,7 @@ public class App {
         System.out.println(sv3);
 
         /* ===== */
-        System.out.println("\n*** Exercise 3.");
+        System.out.println("\n*** Exercise 3. XAY DUNG LOP TAM GIAC Triangle.");
 
         Triangle tg1 = new Triangle(0, 1, 5);
         Triangle tg2 = new Triangle(5, 4, -1);
@@ -63,7 +63,7 @@ public class App {
         System.out.println(tg5);
 
         /* ===== */
-        System.out.println("\n*** Exercise 4: THEO DOI DANG KY XE CUA NGUOI DAN.");
+        System.out.println("\n*** Exercise 4: THEO DOI DANG KY XE CUA NGUOI DAN: LOP Vehicle.");
 
         Vehicle xe1 = new Vehicle("Nguyen Thu Loan", "Future Neo", 35000000.0, 100);
         Vehicle xe2 = new Vehicle("Le Minh Tinh ", "Ford Ranger", 250000000.0, 3000);
@@ -75,7 +75,7 @@ public class App {
         System.out.println(xe3.record());
 
         /* ===== */
-        System.out.println("\n*** Exercise 5. MO TA MOT LOP HANG HOA TRONG KHO LUU TRU THUC PHAM."
+        System.out.println("\n*** Exercise 5. MO TA MOT LOP HANG HOA TRONG KHO LUU TRU THUC PHAM: LOP FoodProduct."
                 + "\nUsing Classes: LocalDate, DecimalFormat, DateTimeFormatter"
         );
 
