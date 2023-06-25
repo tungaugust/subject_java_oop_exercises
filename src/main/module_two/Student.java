@@ -67,6 +67,12 @@ public class Student {
         return (getTheoryMark() + getExperimentMark()) / 2.0;
     }
 
+    public static String headerLine(){
+        return String.format("%-10s %-30s %20s %20s %20s"
+                , "MA SV", "HO VA TEN", "DIEM LT", "DIEM TH", "DIEM TB"
+        );
+    }
+
     @Override
     public String toString() {
         String record = String.format("%-10s %-30s %20.2f %20.2f %20.2f"

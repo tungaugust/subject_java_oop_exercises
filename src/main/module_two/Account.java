@@ -30,7 +30,7 @@ public class Account {
 
     public Account(long accountNumber, String name, double balance) {
         this(accountNumber, name);
-        setBalance(currencyConvertor(balance));
+        setPrimaryBalance(currencyConvertor(balance));
     }
 
     public long getAccountNumber() {
@@ -58,12 +58,19 @@ public class Account {
     public double getBalance() {
         return balance;
     }
-
-    private void setBalance(double balance) {
-        if (balance < BALANCE) {
-            balance = BALANCE;
+    private void setPrimaryBalance(double balance) {
+        if (balance < 0){
+            balance = 0;
         }
         this.balance = balance;
+
+    }
+    private boolean setBalance(double balance) {
+        if (balance < BALANCE){
+            return false;
+        }
+        this.balance = balance;
+        return true;
     }
 
     private double currencyConvertor(double currency) {
@@ -84,8 +91,9 @@ public class Account {
         fee = currencyConvertor(fee);
         double withdrawMoney = amount + fee;
         if (amount > 0.0 && withdrawMoney <= getBalance()) {
-            setBalance(getBalance() - withdrawMoney);
-            return true;
+            if(setBalance(getBalance() - withdrawMoney)) {
+                return true;
+            }
         }
         return false;
     }
@@ -95,23 +103,23 @@ public class Account {
         amount = currencyConvertor(amount);
         double withdrawMoney = amount + fee;
         if (amount > 0.0 && withdrawMoney <= getBalance()) {
-            setBalance(getBalance() - withdrawMoney);
-            return true;
+            if(setBalance(getBalance() - withdrawMoney)) {
+                return true;
+            }
         }
         return false;
     }
 
-    public double addInterest() {
-        return getBalance() + getBalance() * this.RATE;
+    public void addInterest() {
+        setBalance(getBalance() + getBalance() * this.RATE);
     }
 
     public boolean transfer(Account otherAccount, double amount) {
-        amount = currencyConvertor(amount);
-        if (amount > 0 && withdraw(amount)) {
+        if (amount > 0.0 && withdraw(amount)) {
             if (otherAccount.deposit(amount)) {
                 return true;
             }
-            deposit(amount + FEE);
+            deposit(amount + FEE/1000);
         }
         return false;
     }
@@ -126,7 +134,6 @@ public class Account {
                 "accountNumber=" + accountNumber +
                 ", name='" + name + '\'' +
                 ", balance=" + balance +
-                ", RATE=" + RATE +
                 '}';
     }
 }

@@ -43,6 +43,12 @@ public class Order {
         return charge;
     }
 
+    public static String headerLine(){
+        return String.format("%-5s | %-10s | %-20s | %15s | %15s | %20s"
+                , "STT", "MA SP", "MO TA", "DON GIA", "SO LUONG", "THANH TIEN"
+        );
+    }
+
     @Override
     public String toString() {
         String result = "";

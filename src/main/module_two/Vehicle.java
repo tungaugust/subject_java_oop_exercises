@@ -70,6 +70,12 @@ public class Vehicle {
         return this.tax;
     }
 
+    public static String headerLine(){
+        return String.format("%-30s %-20s %15s %20s %20s"
+                , "TEN CHU XE", "LOAI XE", "DUNG TICH", "TRI GIA", "THUE PHAI NOP"
+        );
+    }
+
     public String record() {
         String record = String.format("%-30s %-20s %15d %20.2f %20.2f"
                 , getOwner()

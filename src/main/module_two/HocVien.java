@@ -1,4 +1,5 @@
 package main.module_two;
+import javax.security.auth.Subject;
 import java.util.ArrayList;
 
 public class HocVien {
@@ -103,14 +104,24 @@ public class HocVien {
         return status;
     }
 
+    public static String headerLine(){
+        String nameAndYear = String.format("%-25s | %10s", "HO VA TEN", "NAM SINH");
+        String subject = " | ";
+        for(String monHoc: SUBJECT_NAME_LIST) {
+            subject += String.format("%15s", monHoc) + " | ";
+        }
+        String averageAndStatus = String.format("%10s | %20s", "DIEM TB", "TRANG THAI");
+        return nameAndYear + subject + averageAndStatus;
+    }
+
     @Override
     public String toString() {
-        return "HocVien{" +
-                "name='" + name + '\'' +
-                ", birthYear=" + birthYear +
-                ", subjectCount=" + getSubjectList().size() +
-                ", averageScore=" + averageScore() +
-                ", status=" + status() +
-                '}';
+        String nameAndYear = String.format("%-25s | %10d", getName(), getBirthYear());
+        String subject = " | ";
+        for(MonHoc monHoc: getSubjectList()) {
+            subject += String.format("%15.2f", monHoc.getScore()) + " | ";
+        }
+        String averageAndStatus = String.format("%10.2f | %20s", averageScore(), status());
+        return nameAndYear + subject + averageAndStatus;
     }
 }

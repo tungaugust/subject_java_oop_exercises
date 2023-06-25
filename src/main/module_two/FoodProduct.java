@@ -85,6 +85,12 @@ public class FoodProduct {
         return false;
     }
 
+    public static String headerLine(){
+        return String.format("%-15s %-20s %30s %20s %20s %25s"
+                , "MA HANG", "TEN HANG", "DON GIA", "NGAY SAN XUAT", "NGAY HET HAN", "GHI CHU"
+        );
+    }
+
     @Override
     public String toString() {
         //Trong đó: định dạng đơn giá có phân cách hàng nghìn; định dạng kiểu ngày là dd/MM/yyyy

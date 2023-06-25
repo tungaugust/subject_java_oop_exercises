@@ -118,6 +118,12 @@ public class Triangle {
         return REGULAR_TRIANGLE;
     }
 
+    public static String headerLine(){
+        return String.format("%10s %10s %10s %-20s %10s %10s"
+                , "CANH A", "CANH B", "CANH C", "LOAI", "CHU VI", "DIEN TICH"
+        );
+    }
+
     @Override
     public String toString() {
         return String.format("%10.2f %10.2f %10.2f %-20s %10.2f %10.2f"
