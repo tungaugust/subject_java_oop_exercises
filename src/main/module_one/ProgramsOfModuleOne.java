@@ -121,6 +121,7 @@ public class ProgramsOfModuleOne {
         }
         System.out.println("So lan xuat hien cua ky tu '" + c + "' trong chuoi '" + s + "' la " + count + " lan.");
     }
+    // Exercise 10
     public static void splitStringIntoWords(String s){
         int size = s.length();
         String sub;
@@ -145,6 +146,7 @@ public class ProgramsOfModuleOne {
             System.out.println(str);
         }
     }
+    // Exercise 11
     public static void countDigitsInString(String s){
         int count = 0;
         for (int i = 0; i < s.length(); i++){
@@ -154,6 +156,7 @@ public class ProgramsOfModuleOne {
         }
         System.out.println("So ky tu chu so co trong chuoi '" + s +  "' la " + count + " ky tu.");
     }
+    // Exercise 12
     public static void sumFirstNEvenNumbers(int n){
         int sum  = 0;
         int k = 0;
@@ -165,6 +168,7 @@ public class ProgramsOfModuleOne {
         }
         System.out.println("Tong cua " + n + " so chan dau tien (khong tinh so 0) la " + sum);
     }
+    // Exercise 13
     public static void printOddNumbers(int start, int end){
         System.out.print(start + "->" + end + ": ");
         for (int i = start; i < end; i++){
@@ -178,13 +182,16 @@ public class ProgramsOfModuleOne {
             System.out.println();
         }
     }
+    // Exercise 14 + 17
     public static void printMultipleFromTo(int num, int start, int end){
         System.out.println("Boi so cua " + num + " trong pham vi tu " + start + " den  " + end + ":");
         int multiple = num;
         int k = 1;
+        int sum = 0;
         while(multiple <= end) {
             multiple = num * k;
             if (multiple >= start && multiple <= end){
+                sum += multiple;
                 System.out.print(multiple + " ");
             }
             if (multiple > end){
@@ -192,23 +199,63 @@ public class ProgramsOfModuleOne {
             }
             k++;
         }
-        System.out.println();
+        System.out.println("\nTong cua cac boi so la " +  sum);
     }
+    // Exercise 15
     public static void findMinMaxFromInput(){
         Scanner sc = new Scanner(System.in);
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        System.out.println("Nhap day so nguyen tu ban phim: ");
-        while(sc.hasNextInt()){
-            int num = sc.nextInt();
-            numbers.add(num);
+        System.out.print("So chu so can nhap la: ");
+        int n = sc.nextInt();
+        int[] numbers = new int[n];
+        for (int i = 0; i < n; i++){
+            numbers[i] = sc.nextInt();
         }
-        int min = numbers.get(0);
-        int max = numbers.get(1);
-        for(int i = 0; i < numbers.size() - 1; i++){
-            if (min > numbers.get(i + 1)){
-                min  = numbers.get(i + 1);
+        int min = numbers[0];
+        int max = numbers[0];
+        for(int i = 0; i < n - 1; i++){
+            if (min > numbers[i + 1]){
+                min  = numbers[i + 1];
+            }
+            if (max < numbers[i + 1]){
+                max  = numbers[i + 1];
             }
         }
-        System.out.println(min);
+        System.out.println("Min: " + min + " -- Max: " + max);
     }
+    // Exercise 16
+    public static void printIntegerOddEven(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhap so nguyen: ");
+        int n = sc.nextInt();
+        if (n % 2 == 0){
+            System.out.println("So n = " + n + " la so chan.");
+        } else {
+            System.out.println("So n = " + n + " la so le.");
+        }
+    }
+    // Exercise 18
+    public static int fibonacci(int n){
+        if (n <= 0) {
+            return -1;
+        } else if (n == 1 || n == 2) {
+            return 1;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+    public static void printFibonacci(int n){
+        System.out.print("Day so Fibonacci voi " + n + " so dau tien: ");
+        if (n <= 0){
+            System.out.println(".");
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+        System.out.println();
+    }
+
+    // Exercise 19
+
+    // Exercise 20
 }

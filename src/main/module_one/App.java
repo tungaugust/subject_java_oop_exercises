@@ -80,23 +80,25 @@ public class App {
 
         /* ===== */
         System.out.println("\n*** Exercise 15. TIM GIA TRI LON NHAT VA NHO NHAT TRONG DAY SO.");
-//        ProgramsOfModuleOne.findMinMaxFromInput();
+        //ProgramsOfModuleOne.findMinMaxFromInput();
 
-//        /* ===== */
-//        System.out.println("\n*** Exercise 16. IN RA MOT GIA TRI SO NGUYEN, XAC DINH SO DO LA SO CHAN, SO LE HAY ZERO.");
-//
-//        /* ===== */
-//        System.out.println("\n*** Exercise 17. TINH TONG CAC SO LA BOI SO CUA 3 TRONG PHAM VI TU 300 DEN 3.");
-//
-//        /* ===== */
-//        System.out.println("\n*** Exercise 18. IN RA N SO DAU TIEN CUA DAY SO FINBONACCI VOI HAI GIA TRI DAU TIEN LA 1 VA 1.");
-//
-//        /* ===== */
-//        System.out.println("\n*** Exercise 19. IN RA CAC HINH (DUNG CAU TRUC LAP).");
-//
-//        /* ===== */
-//        System.out.println("\n*** Exercise 20. NHAP HAI SO NGUYEN DUONG M VA N, IN RA CAC HINH (DUNG CAU TRUC LAP).");
+        /* ===== */
+        System.out.println("\n*** Exercise 16. IN RA MOT GIA TRI SO NGUYEN, XAC DINH SO DO LA SO CHAN, SO LE HAY ZERO.");
+        //ProgramsOfModuleOne.printIntegerOddEven();
 
+        /* ===== */
+        System.out.println("\n*** Exercise 17. TINH TONG CAC SO LA BOI SO CUA 3 TRONG PHAM VI TU 3 DEN 300.");
+        ProgramsOfModuleOne.printMultipleFromTo(3, 3, 300);
+
+        /* ===== */
+        System.out.println("\n*** Exercise 18. IN RA N SO DAU TIEN CUA DAY SO FINBONACCI VOI HAI GIA TRI DAU TIEN LA 1 VA 1.");
+        ProgramsOfModuleOne.printFibonacci(10);
+
+        /* ===== */
+        System.out.println("\n*** Exercise 19. IN RA CAC HINH (DUNG CAU TRUC LAP).");
+
+        /* ===== */
+        System.out.println("\n*** Exercise 20. NHAP HAI SO NGUYEN DUONG M VA N, IN RA CAC HINH (DUNG CAU TRUC LAP).");
 
     }
 }
