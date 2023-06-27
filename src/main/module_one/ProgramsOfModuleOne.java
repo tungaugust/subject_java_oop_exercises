@@ -295,73 +295,107 @@ public class ProgramsOfModuleOne {
         }
 
         System.out.println("b. Hinh vuong canh 9 co hai duong cheo, rong.");
-                /* ---
-        *
-        **
-        * *
-        *  *
-        *   *
-        *    *
-        *     *
-        *      *
+        /* ---
+        *********
+        **     **
+        * *   * *
+        *  * *  *
+        *   *   *
+        *  * *  *
+        * *   * *
+        **     **
+        *********
         *********
         --- */
-        /*
-        * 1 - 1 0 0 0 0 0 1
-        * 2 - 0 1 0 0 0 1 0
-        * 3 - 0 0 1 0 1 0 0
-        * 4 - 0 0 0 1 0 0 0
-        * 5 - 0 0 1 0 1 0 0
-        * 6 - 0 1 0 0 0 1 0
-        * 7 - 1 0 0 0 0 0 1
-        * */
         int half = (side - 1) / 2;
         for (int i = 0; i < side; i++){
             if (i == 0 || i == side - 1) {
                 for (int j = 0; j < side; j++){
-                    System.out.print("+");
+                    System.out.print("*");
                 }
-            } else { // i = 1 -> i = (n-1)/2 -> i = n - 2
-                System.out.print("+");
-                if (i > 0 && i <= half) {
+            } else {
+                System.out.print("*");
+                if (i > 0 && i < half) {
                     for (int j = 0; j < i - 1; j++){
-                        System.out.print("x");
+                        System.out.print(" ");
                     }
                     System.out.print("*");
-                    for (int j = 0; j < half - i; j++){
-                        System.out.print("x");
+                    for (int j = 0; j < 2*(half - i) - 1; j++){
+                        System.out.print(" ");
                     }
-                    for (int j = 0; j < half - i - 1; j++){
-                        System.out.print("x");
-                    }
-                    if (i != half) {
-                        System.out.print("*");
-                    }
+                    System.out.print("*");
                     for (int j = 0; j < i - 1; j++){
-                        System.out.print("x");
+                        System.out.print(" ");
+                    }
+                }
+                if (i == half) {
+                    for (int j = 0; j < half - 1; j++){
+                        System.out.print(" ");
+                    }
+                    System.out.print("*");
+                    for (int j = 0; j < half - 1; j++){
+                        System.out.print(" ");
                     }
                 }
                 if (i > half) {
                     for (int j = 0; j < side - i - 2; j++){
-                        System.out.print("y");
+                        System.out.print(" ");
                     }
                     System.out.print("*");
-                    for (int j = 0; j < i - half; j++){
-                        System.out.print("y");
+                    for (int j = 0; j < 2*(i - half) - 1; j++){
+                        System.out.print(" ");
                     }
                     System.out.print("*");
-                    for (int j = 0; j < i - 1; j++){
-                        System.out.print("y");
+                    for (int j = 0; j < side - i - 2; j++){
+                        System.out.print(" ");
                     }
                 }
-                System.out.print("+");
+                System.out.print("*");
             }
-
             System.out.println();
         }
 
-
         System.out.println("c. Hinh sao: chu X va mot dau gach ngang giu chu X, cac duong tao thanh co do dai la 9.");
+        for (int i = 0; i < side; i++){
+            if (i == half){
+                for (int j = 0; j < side; j++){
+                    System.out.print("*");
+                }
+            }
+            if (i >= 0 && i < half){
+
+                for (int j = 0; j < i; j++){
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+                /*
+                * 0, 1, 2, 3 ; 7 5 3 2 1 = 2*(4 - 0) - 1
+                *
+                * */
+                for (int j = 0; j < 2*(half - i) - 1; j++){
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+                for (int j = 0; j < i; j++){
+                    System.out.print(" ");
+                }
+            }
+            if (i > half){
+                for (int j = 0; j < side - i - 1; j++){
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+                for (int j = 0; j < 2*(i - half) - 1; j++){
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+                for (int j = 0; j < side - i - 1; j++){
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
     }
 
     // Exercise 20
