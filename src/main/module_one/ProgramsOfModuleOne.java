@@ -256,6 +256,221 @@ public class ProgramsOfModuleOne {
     }
 
     // Exercise 19
+    public static void printShapeExercise19(){
+        System.out.println("a. Tam gia vuong can co canh la 9, rong.");
+        /* ---
+        *
+        **
+        * *
+        *  *
+        *   *
+        *    *
+        *     *
+        *      *
+        *********
+        --- */
+        int side = 9;
+        for (int i = 0; i < side; i++){
+            if (i == 0) {
+                System.out.println("*");
+                continue;
+            }
+            if (i == 1){
+                System.out.println("**");
+                continue;
+            }
+            if (i >= 2 && i < side - 1){
+                System.out.print("*");
+                for (int j = 0; j < i - 1; j++){
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+            }
+            if (i == side - 1) {
+                for (int j = 0; j < side; j++){
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("b. Hinh vuong canh 9 co hai duong cheo, rong.");
+                /* ---
+        *
+        **
+        * *
+        *  *
+        *   *
+        *    *
+        *     *
+        *      *
+        *********
+        --- */
+        /*
+        * 1 - 1 0 0 0 0 0 1
+        * 2 - 0 1 0 0 0 1 0
+        * 3 - 0 0 1 0 1 0 0
+        * 4 - 0 0 0 1 0 0 0
+        * 5 - 0 0 1 0 1 0 0
+        * 6 - 0 1 0 0 0 1 0
+        * 7 - 1 0 0 0 0 0 1
+        * */
+        int half = (side - 1) / 2;
+        for (int i = 0; i < side; i++){
+            if (i == 0 || i == side - 1) {
+                for (int j = 0; j < side; j++){
+                    System.out.print("+");
+                }
+            } else { // i = 1 -> i = (n-1)/2 -> i = n - 2
+                System.out.print("+");
+                if (i > 0 && i <= half) {
+                    for (int j = 0; j < i - 1; j++){
+                        System.out.print("x");
+                    }
+                    System.out.print("*");
+                    for (int j = 0; j < half - i; j++){
+                        System.out.print("x");
+                    }
+                    for (int j = 0; j < half - i - 1; j++){
+                        System.out.print("x");
+                    }
+                    if (i != half) {
+                        System.out.print("*");
+                    }
+                    for (int j = 0; j < i - 1; j++){
+                        System.out.print("x");
+                    }
+                }
+                if (i > half) {
+                    for (int j = 0; j < side - i - 2; j++){
+                        System.out.print("y");
+                    }
+                    System.out.print("*");
+                    for (int j = 0; j < i - half; j++){
+                        System.out.print("y");
+                    }
+                    System.out.print("*");
+                    for (int j = 0; j < i - 1; j++){
+                        System.out.print("y");
+                    }
+                }
+                System.out.print("+");
+            }
+
+            System.out.println();
+        }
+
+
+        System.out.println("c. Hinh sao: chu X va mot dau gach ngang giu chu X, cac duong tao thanh co do dai la 9.");
+    }
 
     // Exercise 20
+    public static void printShapeExercise20(){
+        System.out.println("a. Tam gia vuong can (xuoi) co canh 7, dat.");
+        /* ---
+        *
+        **
+        ***
+        ****
+        *****
+        ******
+        *******
+        --- */
+        int side = 7;
+        for (int i = 0; i < side; i++){
+            for (int j = 0; j < i + 1; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        System.out.println("b. Tam gia vuong can (nguoc) co canh la 7, dat.");
+        /* ---
+        *******
+        ******
+        *****
+        ****
+        ***
+        **
+        *
+        --- */
+        for (int i = 0; i < side; i++){
+            for (int j = 0; j < side - i; j++){
+                System.out.print("*");
+            }
+            for (int j = 0; j < i; j++){
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("c. Tam gia can co chieu cao 10 va day 19, dat.");
+        /* ---
+                 *
+                ***
+               *****
+              *******
+             *********
+            ***********
+           *************
+          ***************
+         *****************
+        *******************
+        --- */
+        int height = 10;
+        int base = 19; // have to be a odd number.
+        for (int i = 0; i < height; i++){
+            for (int j = 0; j < (base-1)/2 - i; j++){
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i + 1; j++){
+                System.out.print("*");
+            }
+            for (int j = 0; j < i; j++){
+                System.out.print("*");
+            }
+            for (int j = 0; j < (base-1)/2 - i; j++){
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("d. Tam gia can co chieu cao 10 va day 19, rong.");
+        /* ---
+                 *
+                * *
+               *   *
+              *     *
+             *       *
+            *         *
+           *           *
+          *             *
+         *               *
+        *******************
+        --- */
+        int emptyCount = 0;
+        for (int i = 0; i < height; i++){
+            for (int j = 0; j < (base-1)/2 - i; j++){
+                System.out.print(" ");
+            }
+            System.out.print("*");
+            if (i < height - 1) {
+                for (int j = 0; j < emptyCount; j++){
+                    System.out.print(" ");
+                }
+                for (int j = 0; j < i - 1; j++){
+                    System.out.print(" ");
+                }
+                if (i != 0){
+                    System.out.print("*");
+                }
+                emptyCount++;
+            } else {
+                for (int j = 0; j < base - 1; j++){
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
