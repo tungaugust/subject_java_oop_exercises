@@ -8,7 +8,7 @@ public class App {
         System.out.println("***** Module 3 *****");
 
         /* ===== */
-        System.out.println("\n*** Exercise 1.");
+        System.out.println("\n*** Exercise 1. QUAN LY CHUYEN XE.");
 
         ChuyenXe chuyenXe1 = new ChuyenXeNoiThanh("XE001", "Nguyen Van A", 101, 1000000.0, 5, 100);
         ChuyenXe chuyenXe2 = new ChuyenXeNoiThanh("XE002", "Nguyen Van B", 102, 1500000.0, 9, 130);
@@ -38,7 +38,8 @@ public class App {
         System.out.println("- Tong doanh thu cac chuyen xe ngoai thanh la " + tongDoanhThuNgoaiThanh);
 
         /* ===== */
-        System.out.println("\n*** Exercise 2.");
+        System.out.println("\n*** Exercise 2. QUAN LY SACH.");
+
         Sach sach1 = new SachGiaoKhoa("GK001", LocalDate.of(2022,10,10), 50000, 5, "NXB Giao Duc", SachGiaoKhoa.NEW);
         Sach sach2 = new SachGiaoKhoa("GK002", LocalDate.of(2022,9,10), 45000, 10, "NXB Canh Dieu", SachGiaoKhoa.OLD);
         Sach sach3 = new SachGiaoKhoa("GK003", LocalDate.of(2022,8,10), 70000, 8, "NXB Giao Duc", SachGiaoKhoa.NEW);
@@ -81,8 +82,16 @@ public class App {
         }
 
         /* ===== */
-        System.out.println("\n*** Exercise 3.");
-
+        System.out.println("\n*** Exercise 3. QUAN LY GIAO DICH.");
+        Transaction transaction1 = new GoldTransaction("GOL001", LocalDate.of(2022,10,10), 67000000, 20, "Gold Bar");
+        Transaction transaction2 = new GoldTransaction("GOL002", LocalDate.of(2022,10,10), 67000000, 10, "Gold Bar");
+        Transaction transaction3 = new GoldTransaction("GOL003", LocalDate.of(2022,10,10), 67000000, 15, "Gold Bar");
+        Transaction transaction4 = new CurrencyTransaction("CUR004", LocalDate.of(2022,10,10), 23500, 20,
+                CurrencyTransaction.USD_TYPE, 1.003);
+        Transaction transaction5 = new CurrencyTransaction("CUR004", LocalDate.of(2022,10,10), 25700, 20,
+                CurrencyTransaction.EUR_TYPE, 1.003);
+        Transaction transaction6 = new CurrencyTransaction("CUR004", LocalDate.of(2022,10,10), 500000, 20,
+                CurrencyTransaction.VND_TYPE, 1.003);
 
         /* ===== */
         System.out.println("\n*** Exercise 4.");
