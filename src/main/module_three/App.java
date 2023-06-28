@@ -1,6 +1,7 @@
 package main.module_three;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 
 public class App {
@@ -128,7 +129,46 @@ public class App {
         }
 
         /* ===== */
-        System.out.println("\n*** Exercise 4.");
+        System.out.println("\n*** Exercise 4. QUAN LY GIAO DICH NHA DAT.");
+
+        GiaoDichNhaDat giaoDich1 = new GiaoDichDat("DAT001", LocalDate.of(2013,10,11), 60000000.0, GiaoDichDat.A_TYPE, 200);
+        GiaoDichNhaDat giaoDich2 = new GiaoDichDat("DAT002", LocalDate.of(2013,9,10), 45000000.0, GiaoDichDat.B_TYPE, 450);
+        GiaoDichNhaDat giaoDich3 = new GiaoDichDat("DAT003", LocalDate.of(2013,10,10), 50000000.0, GiaoDichDat.C_TYPE, 300);
+        GiaoDichNhaDat giaoDich4 = new GiaoDichNha("NHA004", LocalDate.of(2013,9,15), 100000000.0, GiaoDichNha.REGULAR_TYPE, 250, "03, Hoang Hoa Tham");
+        GiaoDichNhaDat giaoDich5 = new GiaoDichNha("NHA005", LocalDate.of(2013,9,10), 150000000.0, GiaoDichNha.LUXURY_TYPE, 500, "100A, Ly Tu Trong");
+        GiaoDichNhaDat giaoDich6 = new GiaoDichNha("NHA006", LocalDate.of(2013,10,12), 95000000.0, GiaoDichNha.REGULAR_TYPE, 350, "99, Cach Mang Thang Tam");
+
+        ArrayList<GiaoDichNhaDat> danhSachGiaoDich = new ArrayList<GiaoDichNhaDat>();
+        danhSachGiaoDich.add(giaoDich1);
+        danhSachGiaoDich.add(giaoDich2);
+        danhSachGiaoDich.add(giaoDich3);
+        danhSachGiaoDich.add(giaoDich4);
+        danhSachGiaoDich.add(giaoDich5);
+        danhSachGiaoDich.add(giaoDich6);
+        int soLuongGDDat = 0;
+        int soLuongGDNha = 0;
+        double tongThanhTienGDDat = 0;
+        int tongDienTichGDDat = 0;
+        for (GiaoDichNhaDat giaoDich: danhSachGiaoDich){
+            if (giaoDich instanceof GiaoDichDat){
+                soLuongGDDat++;
+                tongThanhTienGDDat += giaoDich.thanhTien();
+                tongDienTichGDDat += giaoDich.getArea();
+            }
+            if (giaoDich instanceof GiaoDichNha){
+                soLuongGDNha++;
+            }
+        }
+
+        System.out.println("- Tong so luong cua giao dich dat la " + soLuongGDDat );
+        System.out.println("- Tong so luong cua giao dich nha la " + soLuongGDNha);
+        System.out.printf("- Trung binh thanh tien cua giao dich dat la %.3f\n tren mot met vuong.", tongThanhTienGDDat/tongDienTichGDDat);
+        System.out.println("- Cac giao dich cua thang 9 nam 2013:" );
+        for (GiaoDichNhaDat giaoDich: danhSachGiaoDich){
+            if (giaoDich.getDate().getYear() == 2013 && giaoDich.getDate().getMonth().getValue() == 9){
+                System.out.println(giaoDich);
+            }
+        }
 
         /* ===== */
         System.out.println("\n*** Exercise 5.");
