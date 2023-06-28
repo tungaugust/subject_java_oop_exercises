@@ -171,7 +171,16 @@ public class App {
         }
 
         /* ===== */
-        System.out.println("\n*** Exercise 5.");
+        System.out.println("\n*** Exercise 5. QUAN LY DANH SACH HOA DON TIEN DIEN CUA KHACH HANG.");
+
+        KhachHang khachHang1 = new KhachHangVietNam("VN001","Nguyen Van A", LocalDate.of(2013,10,11), 100, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
+        KhachHang khachHang2 = new KhachHangVietNam("VN002","Nguyen Van A", LocalDate.of(2013,10,11), 100, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
+        KhachHang khachHang3 = new KhachHangVietNam("VN003","Nguyen Van A", LocalDate.of(2013,10,11), 100, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
+        KhachHang khachHang4 = new KhachHangNuocNgoai("FR004","Hong Lee", LocalDate.of(2013,10,11), 100, 3000.0, "Han Quoc");
+        KhachHang khachHang5 = new KhachHangNuocNgoai("FR005","Thomas Brown", LocalDate.of(2013,10,11), 100, 3000.0, "Anh Quoc");
+        KhachHang khachHang6 = new KhachHangNuocNgoai("FR006","Xian Wang", LocalDate.of(2013,10,11), 100, 3000.0, "Trung Quoc");
+
+
 
         /* ===== */
         System.out.println("\n*** Exercise 6.");
