@@ -48,4 +48,14 @@ public abstract class Transaction {
     }
 
     public abstract double thanhTien();
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "code='" + code + '\'' +
+                ", date=" + date +
+                String.format(", price=%.3f", getPrice()) +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

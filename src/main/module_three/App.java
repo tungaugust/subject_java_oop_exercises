@@ -14,8 +14,8 @@ public class App {
         ChuyenXe chuyenXe2 = new ChuyenXeNoiThanh("XE002", "Nguyen Van B", 102, 1500000.0, 9, 130);
         ChuyenXe chuyenXe3 = new ChuyenXeNgoaiThanh("XE003", "Nguyen Van C", 103, 1200000.0, "D1", 20);
         ChuyenXe chuyenXe4 = new ChuyenXeNgoaiThanh("XE004", "Nguyen Van D", 104, 1700000.0, "D2", 30);
-        ArrayList<ChuyenXe> congTyX = new ArrayList<ChuyenXe>();
 
+        ArrayList<ChuyenXe> congTyX = new ArrayList<ChuyenXe>();
         congTyX.add(chuyenXe1);
         congTyX.add(chuyenXe2);
         congTyX.add(chuyenXe3);
@@ -46,8 +46,8 @@ public class App {
         Sach sach4 = new SachThamKhao("TK004", LocalDate.of(2022,7,10), 60000, 9, "NXB Kim Dong", 5000);
         Sach sach5 = new SachThamKhao("TK005", LocalDate.of(2022,6,10), 80000, 6, "NXB Giao Duc", 5000);
         Sach sach6 = new SachThamKhao("TK006", LocalDate.of(2022,5,10), 20000, 20, "NXB Tuoi Tre", 5000);
-        ArrayList<Sach> danhSachSach = new ArrayList<Sach>();
 
+        ArrayList<Sach> danhSachSach = new ArrayList<Sach>();
         danhSachSach.add(sach1);
         danhSachSach.add(sach2);
         danhSachSach.add(sach3);
@@ -83,6 +83,7 @@ public class App {
 
         /* ===== */
         System.out.println("\n*** Exercise 3. QUAN LY GIAO DICH.");
+
         Transaction transaction1 = new GoldTransaction("GOL001", LocalDate.of(2022,10,10), 67000000, 20, "Gold Bar");
         Transaction transaction2 = new GoldTransaction("GOL002", LocalDate.of(2022,10,10), 67000000, 10, "Gold Bar");
         Transaction transaction3 = new GoldTransaction("GOL003", LocalDate.of(2022,10,10), 67000000, 15, "Gold Bar");
@@ -92,6 +93,39 @@ public class App {
                 CurrencyTransaction.EUR_TYPE, 1.003);
         Transaction transaction6 = new CurrencyTransaction("CUR004", LocalDate.of(2022,10,10), 500000, 20,
                 CurrencyTransaction.VND_TYPE, 1.003);
+
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+        transactions.add(transaction1);
+        transactions.add(transaction2);
+        transactions.add(transaction3);
+        transactions.add(transaction4);
+        transactions.add(transaction5);
+        transactions.add(transaction6);
+
+
+        int goldCount = 0;
+        int currencyCount = 0;
+        double currencyTotal = 0;
+        int currencyQuantityTotal = 0;
+        for (Transaction transaction: transactions){
+            if (transaction instanceof GoldTransaction){
+                goldCount++;
+            }
+            if (transaction instanceof CurrencyTransaction){
+                currencyCount++;
+                currencyTotal += transaction.thanhTien();
+                currencyQuantityTotal += transaction.getQuantity();
+            }
+        }
+        System.out.println("- Tong so luong cua giao dich vang mieng la " + goldCount);
+        System.out.println("- Tong so luong cua giao dich tien te la " + currencyCount);
+        System.out.printf("- Trung binh thanh tien cua giao dich tien te la %.3f\n", currencyTotal/currencyQuantityTotal);
+        System.out.println("- Cac gia dich co tong don gia (thanh tien) tren 1 ty:");
+        for (Transaction transaction: transactions){
+            if (transaction.thanhTien() > 1000000000.0){
+                System.out.println(transaction);
+            }
+        }
 
         /* ===== */
         System.out.println("\n*** Exercise 4.");

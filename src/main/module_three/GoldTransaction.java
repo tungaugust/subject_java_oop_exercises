@@ -22,4 +22,16 @@ public class GoldTransaction extends Transaction{
     public double thanhTien() {
         return getQuantity() * getPrice();
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "code='" + getCode() + '\'' +
+                ", date=" + getDate() +
+                String.format(", price=%.3f", getPrice()) +
+                ", quantity=" + getQuantity() +
+                ", type='" + getType() + '\'' +
+                String.format(", total=%.3f", thanhTien()) +
+                '}';
+    }
 }

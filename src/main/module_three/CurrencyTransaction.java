@@ -41,4 +41,16 @@ public class CurrencyTransaction extends Transaction{
         }
         return 0;
     }
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "code='" + getCode() + '\'' +
+                ", date=" + getDate() +
+                String.format(", price=%.3f", getPrice()) +
+                ", quantity=" + getQuantity() +
+                ", type='" + getType() + '\'' +
+                ", rate='" + getRate() +
+                String.format(", total=%.3f", thanhTien()) +
+                '}';
+    }
 }
