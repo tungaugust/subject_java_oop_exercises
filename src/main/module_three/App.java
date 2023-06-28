@@ -21,35 +21,68 @@ public class App {
         congTyX.add(chuyenXe3);
         congTyX.add(chuyenXe4);
 
-        double sumTotal = 0;
-        double sumNoiThanh = 0;
-        double sumNgoaiThanh = 0;
+        double tongDoanhThu = 0;
+        double tongDoanhThuNoiThanh = 0;
+        double tongDoanhThuNgoaiThanh = 0;
         for (ChuyenXe cx: congTyX){
-            sumTotal += cx.getRevenue();
+            tongDoanhThu += cx.getRevenue();
             if (cx instanceof ChuyenXeNoiThanh){
-                sumNoiThanh += cx.getRevenue();
+                tongDoanhThuNoiThanh += cx.getRevenue();
             }
             if (cx instanceof ChuyenXeNgoaiThanh){
-                sumNgoaiThanh += cx.getRevenue();
+                tongDoanhThuNgoaiThanh += cx.getRevenue();
             }
         }
-        System.out.println("- Tong doanh thu cac chuyen xe la " + sumTotal);
-        System.out.println("- Tong doanh thu cac chuyen xe noi thanh la " + sumNoiThanh);
-        System.out.println("- Tong doanh thu cac chuyen xe ngoai thanh la " + sumNgoaiThanh);
+        System.out.println("- Tong doanh thu cac chuyen xe la " + tongDoanhThu);
+        System.out.println("- Tong doanh thu cac chuyen xe noi thanh la " + tongDoanhThuNoiThanh);
+        System.out.println("- Tong doanh thu cac chuyen xe ngoai thanh la " + tongDoanhThuNgoaiThanh);
 
         /* ===== */
         System.out.println("\n*** Exercise 2.");
-        Sach sach1 = new SachGiaoKhoa("GK001", LocalDate.of(2022,10,10), 50000, 10, "NXB Giao Duc", SachGiaoKhoa.NEW);
-        Sach sach2 = new SachGiaoKhoa("GK001", LocalDate.of(2022,10,10), 50000, 10, "NXB Giao Duc", SachGiaoKhoa.NEW);
-        Sach sach3 = new SachGiaoKhoa("GK001", LocalDate.of(2022,10,10), 50000, 10, "NXB Giao Duc", SachGiaoKhoa.NEW);
-        Sach sach4 = new SachThamKhao("GK001", LocalDate.of(2022,10,10), 50000, 10, "NXB Giao Duc", 10000);
-        Sach sach5 = new SachThamKhao("GK001", LocalDate.of(2022,10,10), 50000, 10, "NXB Giao Duc", 10000);
-        Sach sach6 = new SachThamKhao("GK001", LocalDate.of(2022,10,10), 50000, 10, "NXB Giao Duc", 10000);
+        Sach sach1 = new SachGiaoKhoa("GK001", LocalDate.of(2022,10,10), 50000, 5, "NXB Giao Duc", SachGiaoKhoa.NEW);
+        Sach sach2 = new SachGiaoKhoa("GK002", LocalDate.of(2022,9,10), 45000, 10, "NXB Canh Dieu", SachGiaoKhoa.OLD);
+        Sach sach3 = new SachGiaoKhoa("GK003", LocalDate.of(2022,8,10), 70000, 8, "NXB Giao Duc", SachGiaoKhoa.NEW);
+        Sach sach4 = new SachThamKhao("TK004", LocalDate.of(2022,7,10), 60000, 9, "NXB Kim Dong", 5000);
+        Sach sach5 = new SachThamKhao("TK005", LocalDate.of(2022,6,10), 80000, 6, "NXB Giao Duc", 5000);
+        Sach sach6 = new SachThamKhao("TK006", LocalDate.of(2022,5,10), 20000, 20, "NXB Tuoi Tre", 5000);
+        ArrayList<Sach> danhSachSach = new ArrayList<Sach>();
 
+        danhSachSach.add(sach1);
+        danhSachSach.add(sach2);
+        danhSachSach.add(sach3);
+        danhSachSach.add(sach4);
+        danhSachSach.add(sach5);
+        danhSachSach.add(sach6);
 
+        double tongThanhTienSachGK = 0;
+        double tongThanhTienSachTK = 0;
+        double tongDonGiaSachTK = 0;
+        int soLuongSachTK = 0;
+        for (Sach sach: danhSachSach){
+            if (sach instanceof SachGiaoKhoa){
+                tongThanhTienSachGK += sach.thanhTien();
+                tongDonGiaSachTK += sach.getPrice();
+                soLuongSachTK++;
+            }
+            if (sach instanceof SachThamKhao){
+                tongThanhTienSachTK += sach.thanhTien();
+            }
+        }
+        System.out.println("- Tong thanh tien cua sach giao khoa la " + tongThanhTienSachGK);
+        System.out.println("- Tong thanh tien cua sach tham khao la " + tongThanhTienSachTK);
+        System.out.println("- Trung binh cong don gia cua sach tham khao la " + tongDonGiaSachTK/soLuongSachTK);
+
+        String nxb = "NXB Giao Duc";
+        System.out.println("- Cac sach giao khoa cua " +  nxb + ":");
+        for (Sach sach: danhSachSach){
+            if (sach instanceof SachGiaoKhoa && sach.getPublisher().equals(nxb)){
+                System.out.println(sach);
+            }
+        }
 
         /* ===== */
         System.out.println("\n*** Exercise 3.");
+
 
         /* ===== */
         System.out.println("\n*** Exercise 4.");

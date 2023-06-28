@@ -28,4 +28,16 @@ public class SachGiaoKhoa extends Sach {
             return getQuantity() * getPrice() * 50 / 100;
         }
     }
+
+    @Override
+    public String toString() {
+        return "SachGiaoKhoa{" +
+                "code='" + getCode() + '\'' +
+                ", importDate=" + getImportDate() +
+                ", price=" + getPrice() +
+                ", quantity=" + getQuantity() +
+                ", publisher='" + getPublisher() + '\'' +
+                ", status='" + getStatus() + '\'' +
+                '}';
+    }
 }

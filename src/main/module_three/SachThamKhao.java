@@ -22,4 +22,16 @@ public class SachThamKhao extends Sach {
     public double thanhTien() {
         return getQuantity() * getPrice() + getTax();
     }
+
+    @Override
+    public String toString() {
+        return "SachThamKhao{" +
+                "code='" + getCode() + '\'' +
+                ", importDate=" + getImportDate() +
+                ", price=" + getPrice() +
+                ", quantity=" + getQuantity() +
+                ", publisher='" + getPublisher() + '\'' +
+                ", tax='" + getTax() + '\'' +
+                '}';
+    }
 }
