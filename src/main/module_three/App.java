@@ -303,9 +303,15 @@ public class App {
         /* ===== */
         System.out.println("\n*** Exercise 8.");
 
+        /* ===== */
+        System.out.println("\n*** Exercise 9. DA HINH, VE HINH");
+        Drawing drawing = new Drawing();
 
-
-
+        drawing.drawShape(new Triangle());
+        drawing.drawShape(new Rectangle());
+        drawing.drawShape(new Quad());
+        drawing.drawShape(new Polygon());
+        drawing.drawShape(new Circle());
 
     }
 }
