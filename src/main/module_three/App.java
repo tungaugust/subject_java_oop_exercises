@@ -163,7 +163,7 @@ public class App {
         System.out.println("- Tong so luong cua giao dich dat la " + soLuongGDDat );
         System.out.println("- Tong so luong cua giao dich nha la " + soLuongGDNha);
         System.out.printf("- Trung binh thanh tien cua giao dich dat la %.3f\n tren mot met vuong.", tongThanhTienGDDat/tongDienTichGDDat);
-        System.out.println("- Cac giao dich cua thang 9 nam 2013:" );
+        System.out.println("- Cac giao dich trong thang 9 nam 2013:" );
         for (GiaoDichNhaDat giaoDich: danhSachGiaoDich){
             if (giaoDich.getDate().getYear() == 2013 && giaoDich.getDate().getMonth().getValue() == 9){
                 System.out.println(giaoDich);
@@ -173,13 +173,41 @@ public class App {
         /* ===== */
         System.out.println("\n*** Exercise 5. QUAN LY DANH SACH HOA DON TIEN DIEN CUA KHACH HANG.");
 
-        KhachHang khachHang1 = new KhachHangVietNam("VN001","Nguyen Van A", LocalDate.of(2013,10,11), 100, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
-        KhachHang khachHang2 = new KhachHangVietNam("VN002","Nguyen Van A", LocalDate.of(2013,10,11), 100, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
-        KhachHang khachHang3 = new KhachHangVietNam("VN003","Nguyen Van A", LocalDate.of(2013,10,11), 100, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
-        KhachHang khachHang4 = new KhachHangNuocNgoai("FR004","Hong Lee", LocalDate.of(2013,10,11), 100, 3000.0, "Han Quoc");
-        KhachHang khachHang5 = new KhachHangNuocNgoai("FR005","Thomas Brown", LocalDate.of(2013,10,11), 100, 3000.0, "Anh Quoc");
-        KhachHang khachHang6 = new KhachHangNuocNgoai("FR006","Xian Wang", LocalDate.of(2013,10,11), 100, 3000.0, "Trung Quoc");
+        KhachHang khachHang1 = new KhachHangVietNam("VN001","Nguyen Van A", LocalDate.of(2018,9,11), 100, 3000.0, KhachHangVietNam.MANUFACTURE_TYPE, 60);
+        KhachHang khachHang2 = new KhachHangVietNam("VN002","Nguyen Van A", LocalDate.of(2018,9,23), 60, 3000.0, KhachHangVietNam.BUSINESS_TYPE, 60);
+        KhachHang khachHang3 = new KhachHangVietNam("VN003","Nguyen Van A", LocalDate.of(2018,10,20), 85, 3000.0, KhachHangVietNam.LIVING_TYPE, 60);
+        KhachHang khachHang4 = new KhachHangNuocNgoai("FR004","Hong Lee", LocalDate.of(2018,9,17), 110, 3000.0, "Han Quoc");
+        KhachHang khachHang5 = new KhachHangNuocNgoai("FR005","Thomas Brown", LocalDate.of(2018,10,1), 45, 3000.0, "Anh Quoc");
+        KhachHang khachHang6 = new KhachHangNuocNgoai("FR006","Xian Wang", LocalDate.of(2019,9,10), 90, 3000.0, "Trung Quoc");
 
+        ArrayList<KhachHang> danhSachKhachHang = new ArrayList<KhachHang>();
+        danhSachKhachHang.add(khachHang1);
+        danhSachKhachHang.add(khachHang2);
+        danhSachKhachHang.add(khachHang3);
+        danhSachKhachHang.add(khachHang4);
+        danhSachKhachHang.add(khachHang5);
+        danhSachKhachHang.add(khachHang6);
+        int soLuongKHVietNam = 0;
+        int soLuongKHNuocNgoai = 0;
+        double tongThanhTienKHNuocNgoai = 0;
+        for (KhachHang khachHang: danhSachKhachHang){
+            if (khachHang instanceof KhachHangVietNam){
+                soLuongKHVietNam++;
+            }
+            if (khachHang instanceof KhachHangNuocNgoai){
+                soLuongKHNuocNgoai++;
+                tongThanhTienKHNuocNgoai += khachHang.thanhTien();
+            }
+        }
+        System.out.println("- Tong so luong cua khach hang Viet Nam la " + soLuongKHVietNam);
+        System.out.println("- Tong so luong cua khach hang nuoc ngoai la " + soLuongKHNuocNgoai);
+        System.out.printf("- Trung binh thanh tien cua khach hang nuoc ngoai la %.3f\n tren mot hoa don.", tongThanhTienKHNuocNgoai/soLuongKHNuocNgoai);
+        System.out.println("- Cac hoa don trong thang 9 nam 2018:" );
+        for (KhachHang khachHang: danhSachKhachHang){
+            if (khachHang.getDate().getYear() == 2018 && khachHang.getDate().getMonth().getValue() == 9){
+                System.out.println(khachHang);
+            }
+        }
 
 
         /* ===== */
