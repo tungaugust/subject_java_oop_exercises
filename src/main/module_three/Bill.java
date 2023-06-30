@@ -71,6 +71,12 @@ public abstract class Bill {
 
     public abstract double revenue();
 
+    public static String headerLine(){
+        return String.format("%-15s %-20s %-25s %-15s %20s %10s %20s"
+                , "MA HD", "NGAY XUAT HD", "TEN KHACH HANG", "MA PHONG", "DON GIA", "SO LUONG", "THANH TIEN"
+        );
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -80,7 +86,7 @@ public abstract class Bill {
         String priceFString = df.format(getPrice()) + "VND";
         String revenueFString = df.format(revenue()) + "VND";
 
-        String record = String.format("%-15s %-20s %30s %20s %20s %25s"
+        String record = String.format("%-15s %-20s %-25s %-15s %20s %10s %20s"
                 , getBillCode()
                 , dateFString
                 , getCustomer()

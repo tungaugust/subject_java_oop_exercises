@@ -3,10 +3,12 @@ package main.module_three;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public static void run(String[] args) {
         System.out.println("***** Module 3 *****");
+        Scanner scanner = new Scanner(System.in);
 
         /* ===== */
         System.out.println("\n*** Exercise 1. QUAN LY CHUYEN XE.");
@@ -209,9 +211,90 @@ public class App {
             }
         }
 
-
         /* ===== */
-        System.out.println("\n*** Exercise 6.");
+        System.out.println("\n*** Exercise 6. QUAN LY HOA DON CHO THUE PHONG.");
+        Bill bill1 = new HourlyBill("HB001", LocalDate.of(2023, 10, 5), "Nguyen Van A", "R001X", 100000.0, 12);
+        Bill bill2 = new HourlyBill("HB002", LocalDate.of(2023, 9, 5), "Nguyen Van B", "R001Y", 100000.0, 5);
+        Bill bill3 = new HourlyBill("HB003", LocalDate.of(2023, 10, 5), "Nguyen Van C", "R001Z", 100000.0, 27);
+        Bill bill4 = new DailyBill("DB004", LocalDate.of(2023, 10, 5), "Nguyen Van D", "R001A", 500000.0, 3);
+        Bill bill5 = new DailyBill("DB005", LocalDate.of(2022, 9, 6), "Nguyen Van E", "R001Z", 500000.0, 6);
+        Bill bill6 = new DailyBill("DB006", LocalDate.of(2023, 10, 5), "Nguyen Van F", "R001B", 500000.0, 2);
+
+        BillManager billManager = new BillManager();
+        billManager.add(bill1);
+        billManager.add(bill2);
+        billManager.add(bill3);
+        billManager.add(bill4);
+        billManager.add(bill5);
+        billManager.add(bill6);
+
+        int opt = 0;
+        boolean flag = false;
+        while (flag){
+            System.out.println("\n\n---------- MENU ----------");
+            System.out.println("\t1. In so luong cac hoa don co trong danh sach theo tung loai va tong so luong.");
+            System.out.println("\t2. Nhap mot hoa don vao danh sach hoa don.");
+            System.out.println("\t3. Xuat toan bo danh sach hoa don theo thang, nam.");
+            System.out.println("--------------------------");
+            System.out.print("\nNhap tuy chon [ 1 - 3 ]: ");
+
+            opt = Integer.valueOf(scanner.nextLine().trim());
+
+            System.out.println();
+            int year, month, day, amount;
+            double price;
+            String billCode, roomCode, customer, type;
+            LocalDate date;
+            switch (opt){
+                case 1:
+                    System.out.println("So luong hoa don theo gio: " + billManager.hourlyBillCount());
+                    System.out.println("So luong hoa don theo ngay: " + billManager.dailyBillCount());
+                    System.out.println("Tong so luong hoa don: " + billManager.getCount());
+                    break;
+                case 2:
+                    System.out.print("Nhap loai hoa don [h - hourly (mac dinh theo gio), d - daily]: ");
+                    type = String.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap ma hoa don: ");
+                    billCode = String.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap nam: ");
+                    year = Integer.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap thang: ");
+                    month = Integer.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap ngay: ");
+                    day = Integer.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap ten khach hang: ");
+                    customer = String.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap ma phong: ");
+                    roomCode = String.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap don gia: ");
+                    price = Double.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap so luong: ");
+                    amount = Integer.valueOf(scanner.nextLine().trim());
+                    Bill newBill;
+                    if(type.equals("h")){
+                        newBill = new HourlyBill(billCode, LocalDate.of(year, month, day), customer, roomCode, price, amount);
+                    } else {
+                        newBill = new DailyBill(billCode, LocalDate.of(year, month, day), customer, roomCode, price, amount);
+                    }
+                    if (billManager.add(newBill)){
+                        System.out.println("Them hoa don thanh cong.");
+                    } else {
+                        System.out.println("Them hoa don that bai.");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Nhap nam: ");
+                    year = Integer.valueOf(scanner.nextLine().trim());
+                    System.out.print("Nhap thang: ");
+                    month = Integer.valueOf(scanner.nextLine().trim());
+                    billManager.printer(month, year);
+                    break;
+                default:
+                    System.out.println("Dung MENU.");
+                    flag = false;
+                    break;
+            }
+        }
 
         /* ===== */
         System.out.println("\n*** Exercise 7.");

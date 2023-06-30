@@ -1,43 +1,79 @@
 package main.module_three;
 
 
-public class BillManager {
-    private Bill[] list;
-    private int capacity;
-    private int size;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
-//    public Bill[] getList() {
-//        return list;
-//    }
-//
-    private void setList(Bill[] list) {
+public class BillManager {
+    private ArrayList<Bill> list;
+    public ArrayList<Bill> getList() {
+        return list;
+    }
+
+    private void setList(ArrayList<Bill> list) {
         this.list = list;
     }
-//
-//
-//    private void setCount(int count) {
-//        if (count < 0){
-//            count = 0;
-//        }
-//        this.capacity = count;
-//    }
 
-    public BillManager(int count) {
-//        setCount(count);
-        setList(new Bill[count]);
+    public int getCount() {
+        return getList().size();
     }
 
-//    public void reSetupCount(int count){
-//        if (count < 0){
-//            return;
-//        }
-//        setCount(count);
-//    }
-//
-//    public boolean add(Bill bill){
-//        if()
-//
-//        return false;
-//    }
+    public BillManager() {
+        setList(new ArrayList<Bill>());
+    }
 
+    public boolean add(Bill bill){
+        if(!this.equals(bill)){
+            getList().add(bill);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void printer(int month, int year){
+        System.out.println(Bill.headerLine());
+        if (month > 0 && year > 0) {
+            for(Bill bill: getList()){
+                if(year == bill.getDate().getYear() && month == bill.getDate().getMonth().getValue()){
+                    System.out.println(bill);
+                }
+            }
+        } else {
+            for(Bill bill: getList()){
+                System.out.println(bill);
+            }
+        }
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        String totalRevenueFString = df.format(totalRevenue(month, year)) + "VND";
+        System.out.println(">>> Tong thanh tien: " + totalRevenueFString);
+    }
+
+    public int hourlyBillCount(){
+        int count = 0;
+        for(Bill bill: getList()){
+            if(bill instanceof  HourlyBill) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int dailyBillCount(){
+        int count = 0;
+        for(Bill bill: getList()){
+            if(bill instanceof  DailyBill) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public double totalRevenue(int month, int year){
+        int sum = 0;
+        for(Bill bill: getList()){
+            if(year == bill.getDate().getYear() && month == bill.getDate().getMonth().getValue()){
+                sum += bill.revenue();
+            }
+        }
+        return sum;
+    }
 }
