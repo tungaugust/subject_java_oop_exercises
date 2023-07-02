@@ -334,5 +334,27 @@ public class App {
         System.out.println(vehicle3);
         System.out.println(vehicle4);
         System.out.println(vehicle5);
+
+        /* ===== */
+        System.out.println("\n*** Exercise 11. XAY DUNG CAC LOP VE CAC SINH VIEN, HOC SINH CUA CAC CAP BAC CUA MOT TRUON DAI HOC.");
+
+        Student student1 = new UniversityStudent("20811114","Nguyen Van Long","Nam", LocalDate.of(2000,10,9), "Vinh Phuc" ,"Ky thuat phan mem", "Cong nghe thong tin", 2018);
+        Student student2 = new CollegeStudent("20810119","Hoang Thanh Tam","Nu", LocalDate.of(2001,8,10), "Long An" ,"Ky thuat phan mem", "Cong nghe thong tin", 2019);
+        Student student3 = new IntermediateStudent("20800006","Pham Toan Thang","Nam", LocalDate.of(2000,5,20), "Tien Giang" ,"Ky thuat phan mem", "Cong nghe thong tin", 2018);
+        Student student4 = new ExchangeStudent("20819067","Ho Bao Ngoc","Nu", LocalDate.of(2001,1,15), "Ca Mau" ,"Ky thuat phan mem", "Cong nghe thong tin", 2019);
+
+        StudentManager studentManager = new StudentManager();
+        studentManager.add(student1);
+        studentManager.add(student2);
+        studentManager.add(student3);
+        studentManager.add(student4);
+
+        System.out.printf("- Danh sach co %d sinh vien:\n", studentManager.getSize());
+        studentManager.printAll();
+
+        studentManager.remove("20800006");
+        System.out.printf("- Danh sach con %d sinh vien, sau khi xoa sinh vien co ma so la 20800006:\n", studentManager.getSize());
+        studentManager.printAll();
+
     }
 }
