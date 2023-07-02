@@ -1,8 +1,14 @@
 package main.module_three;
 
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class App {
@@ -305,13 +311,28 @@ public class App {
 
         /* ===== */
         System.out.println("\n*** Exercise 9. DA HINH, VE HINH");
-        Drawing drawing = new Drawing();
 
+        Drawing drawing = new Drawing();
         drawing.drawShape(new Triangle());
         drawing.drawShape(new Rectangle());
         drawing.drawShape(new Quad());
         drawing.drawShape(new Polygon());
         drawing.drawShape(new Circle());
 
+        /* ===== */
+        System.out.println("\n*** Exercise 10. XAY DUNG CAC LOP VE LOAI XE.");
+
+        Vehicle vehicle1 = new Car("Ford Everest", "Ford", "FE2304", 2023,"Nguyen Van A", 1500000000.0, 7);
+        Vehicle vehicle2 = new Car("Mitsubishi Pajero Sport", "Mitsubishi", "MBPS23", 2023,"Nguyen Van B", 1100000000.0, 4);
+        Vehicle vehicle3 = new Truck("Hyundai New Mighty N250", "Hyundai", "N250SL", 2019,"Nguyen Van C", 480000000.0);
+        Vehicle vehicle4 = new Bike("Asama RAINBOW", "Asama", "RA2701", 2020,"Nguyen Van D", 4200000.0);
+        Vehicle vehicle5 = new Motorbike("Honda Vision", "Honda", "HV2306", 2023,"Nguyen Van E", 35000000.0);
+
+        System.out.println(Vehicle.headerLine());
+        System.out.println(vehicle1);
+        System.out.println(vehicle2);
+        System.out.println(vehicle3);
+        System.out.println(vehicle4);
+        System.out.println(vehicle5);
     }
 }
