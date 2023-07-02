@@ -9,10 +9,7 @@ public class Account {
     private final static double BALANCE = 50000.0;
     private final static double FEE = 1000.0;
     private final double RATE = 0.035;
-    //    - accountNumber : long
-//- name : String
-//- balance : double
-//- RATE = 0.035 : final double
+
     private long accountNumber;
     private String name;
     private double balance;

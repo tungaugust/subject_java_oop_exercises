@@ -356,5 +356,8 @@ public class App {
         System.out.printf("- Danh sach con %d sinh vien, sau khi xoa sinh vien co ma so la 20800006:\n", studentManager.getSize());
         studentManager.printAll();
 
+        /* ===== */
+        System.out.println("\n*** Exercise 12. XAY DUNG CAC LOP QUAN LY TAI KHOAN NGAN HANG.");
+
     }
 }
