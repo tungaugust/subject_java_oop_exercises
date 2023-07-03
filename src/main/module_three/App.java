@@ -309,6 +309,7 @@ public class App {
         /* ===== */
         System.out.println("\n*** Exercise 8.");
 
+
         /* ===== */
         System.out.println("\n*** Exercise 9. DA HINH, VE HINH");
 
