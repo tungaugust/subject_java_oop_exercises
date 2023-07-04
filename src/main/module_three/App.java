@@ -304,7 +304,17 @@ public class App {
 
         /* ===== */
         System.out.println("\n*** Exercise 7.");
+        Product product1 = new FoodProduct("F001", "Thit ga", 10000.0, 15, "hallo", LocalDate.of(2023,1,2), LocalDate.of(2023,1,8));
+        Product product2 = new CrockeryProduct("C001", "Dia", 10000.0, 15, "Minh Long", LocalDate.of(2023,6,20));
+        Product product3 = new ElectricProduct("E001", "Tu lanh", 10000.0, 15, 18, 2000);
+        ProductManager productManager = new ProductManager(10);
+        productManager.add(product1);
+        productManager.add(product2);
 
+        productManager.printProducts();
+        productManager.printFoodProducts();
+        productManager.printCrockeryProducts();
+        productManager.printElectricProducts();
 
         /* ===== */
         System.out.println("\n*** Exercise 8.");

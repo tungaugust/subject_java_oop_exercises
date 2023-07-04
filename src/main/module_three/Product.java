@@ -26,7 +26,7 @@ public abstract class Product {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         if(code.equals("")){
             code = "xxx";
         }
@@ -37,7 +37,7 @@ public abstract class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    protected void setPrice(double price) {
         if(price < 0){
             price = 0;
         }
@@ -48,7 +48,7 @@ public abstract class Product {
         return storedQuantity;
     }
 
-    public void setStoredQuantity(int storedQuantity) {
+    protected void setStoredQuantity(int storedQuantity) {
         if (storedQuantity < 0) {
             storedQuantity = 0;
         }

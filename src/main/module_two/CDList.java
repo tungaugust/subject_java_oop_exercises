@@ -68,7 +68,7 @@ public class CDList {
     public void sortDescendingPrice() {
         ArrayList<CD> cdList = getList();
         int size = (int) getSize();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 CD before = cdList.get(i);
                 CD after = cdList.get(j);
@@ -82,7 +82,7 @@ public class CDList {
     public void sortAscendingTitle() {
         ArrayList<CD> cdList = getList();
         int size = (int) getSize();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
                 CD before = cdList.get(i);
                 CD after = cdList.get(j);
