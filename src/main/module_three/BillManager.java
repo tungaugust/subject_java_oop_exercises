@@ -23,11 +23,12 @@ public class BillManager {
     }
 
     public boolean add(Bill bill){
-        if(!this.equals(bill)){
-            getList().add(bill);
-            return true;
+        for (Bill b: getList()) {
+            if (!this.equals(bill)) {
+                getList().add(bill);
+                return true;
+            }
         }
-
         return false;
     }
 
