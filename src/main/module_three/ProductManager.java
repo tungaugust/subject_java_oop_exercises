@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class ProductManager {
     private Product[] products;
@@ -278,4 +279,114 @@ public class ProductManager {
         }
     }
 
+    private static String normalization(String data){
+        return data.trim().toUpperCase();
+    }
+    public static void runMenu(ProductManager productManager, boolean flag){
+        Scanner scanner = new Scanner(System.in);
+        int opt = 0;
+        while (flag){
+            System.out.println("\n\n---------- MENU ----------");
+            System.out.println("\t1. Them hang hoa vao danh sach.");
+            System.out.println("\t2. In toan bo danh sach hang hoa.");
+            System.out.println("\t3. In toan bo danh sach tung loai hang hoa.");
+            System.out.println("\t4. Tim kiem hang hoa.");
+            System.out.println("\t5. Sap xep hang hoa theo ten tang dan.");
+            System.out.println("\t6. Sap xep hang hoa theo so luong ton kho giam dan.");
+            System.out.println("\t7. Xuat cac hoa hang \"kho ban\".");
+            System.out.println("\t8. Xoa hang hoa.");
+            System.out.println("\t9. Sua don gia.");
+            System.out.println("\tNhap cac so ngoai [ 1 - 9 ] de thoat menu.");
+            System.out.println("--------------------------");
+            System.out.print("\nNhap tuy chon [ 1 - 9 ]: ");
+
+            opt = Integer.valueOf(normalization(scanner.nextLine()));
+            String productCode;
+            switch (opt) {
+                case 1:
+                    System.out.println("Nhap hang hoa muon them vao danh sach:");
+                    Product product = new FoodProduct("FFI002", "Ca basa", 60000.0, 8, "VietSeafood", LocalDate.of(2023,7,5), LocalDate.of(2023,7,7));
+                    if (productManager.add(product)){
+                        System.out.println("Them thanh cong.");
+                    }else {
+                        System.out.println("Them that bai.");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Dach sach tat ca hang hoa:");
+                    productManager.printProducts();
+                    break;
+                case 3:
+                    System.out.println("Nhap loai hang muon in danh sach"
+                            + "\n- Hang thuc pham, nhap 1"
+                            + "\n- Hang do su, nhap 2"
+                            + "\n- Hang dien may, nhap 3"
+                    );
+                    System.out.print("Loai hang muon in: ");
+                    int productType = Integer.valueOf(normalization(scanner.nextLine()));
+                    switch (productType){
+                        case 1:
+                            System.out.println("Dach sach hang thuc pham:");
+                            productManager.printFoodProducts();
+                            break;
+                        case 2:
+                            System.out.println("Dach sach hang do su:");
+                            productManager.printCrockeryProducts();
+                            break;
+                        case 3:
+                            System.out.println("Dach sach hang dien may:");
+                            productManager.printElectricProducts();
+                            break;
+                        default:
+                            System.out.println("Loai hang khong nam trong danh sach.");
+                            break;
+                    }
+                    break;
+                case 4:
+                    System.out.print("Hang hoa can tim co ma la: ");
+                    productCode = normalization(scanner.nextLine());
+                    System.out.println("Hang hoa tim duoc:");
+                    productManager.findProduct(productCode);
+                    break;
+                case 5:
+                    System.out.println("Danh sach hang hoa theo ten tang dan:");
+                    productManager.sortAscendingProductName();
+                    productManager.printProducts();
+                    break;
+                case 6:
+                    System.out.println("Danh sach hang hoa theo so luong ton kho giam dan:");
+                    productManager.sortDescendingStoredQuantity();
+                    productManager.printProducts();
+                    break;
+                case 7:
+                    System.out.println("Danh sach hang hoa thuc pham kho bann:");
+                    productManager.printWithSalesRating(Product.DIFF_SALE);
+                    break;
+                case 8:
+                    System.out.print("Hang hoa can xoa co ma la: ");
+                    productCode = normalization(scanner.nextLine());
+                    if (productManager.remove(productCode)){
+                        System.out.println("Xoa thanh cong.");
+                    }else {
+                        System.out.println("Xoa that bai.");
+                    }
+                    break;
+                case 9:
+                    System.out.print("Hang hoa can sua co ma la: ");
+                    productCode = normalization(scanner.nextLine());
+                    System.out.print("Hang hoa can sua co ma la: ");
+                    double newPrice = Double.valueOf(normalization(scanner.nextLine()));
+                    if (productManager.fixProductPrice(productCode, newPrice)){
+                        System.out.println("Sua don gia thanh cong.");
+                    }else {
+                        System.out.println("Xoa don gia that bai.");
+                    }
+                    break;
+                default:
+                    System.out.println("Thoat MENU.");
+                    flag = false;
+                    break;
+            }
+        }
+    }
 }

@@ -304,20 +304,28 @@ public class App {
 
         /* ===== */
         System.out.println("\n*** Exercise 7.");
-        Product product1 = new FoodProduct("F001", "Thit ga", 10000.0, 15, "hallo", LocalDate.of(2023,1,2), LocalDate.of(2023,1,8));
-        Product product2 = new CrockeryProduct("C001", "Dia", 10000.0, 15, "Minh Long", LocalDate.of(2023,6,20));
-        Product product3 = new ElectricProduct("E001", "Tu lanh", 10000.0, 15, 18, 2000);
+        Product product1 = new FoodProduct("FCH001", "Thit ga", 40000.0, 20, "Ba Huan", LocalDate.of(2023,7,2), LocalDate.of(2023,7,8));
+        Product product2 = new CrockeryProduct("CDI001", "Dia sanh", 110000.0, 40, "Minh Long", LocalDate.of(2023,6,20));
+        Product product3 = new ElectricProduct("EIR001", "Tu lanh", 350000.0, 33, 36, 400);
+        Product product4 = new FoodProduct("FVE001", "Cai xanh", 17000.0, 35, "VietGap", LocalDate.of(2023,1,2), LocalDate.of(2023,1,8));
+        Product product5 = new CrockeryProduct("CCU001", "Tach uong", 50000.0, 15, "Minh Chau", LocalDate.of(2023,5,10));
+        Product product6 = new ElectricProduct("ECO001", "Noi com dien", 550000.0, 8, 12, 1100);
+        Product product7 = new FoodProduct("FFI001", "Ca dieu hong", 80000.0, 10, "VietSeafood", LocalDate.of(2023,7,5), LocalDate.of(2023,7,7));
+
         ProductManager productManager = new ProductManager(10);
         productManager.add(product1);
         productManager.add(product2);
+        productManager.add(product3);
+        productManager.add(product4);
+        productManager.add(product5);
+        productManager.add(product6);
+        productManager.add(product7);
 
-        productManager.printProducts();
-        productManager.printFoodProducts();
-        productManager.printCrockeryProducts();
-        productManager.printElectricProducts();
+        flag = false;
+        ProductManager.runMenu(productManager, flag);
 
         /* ===== */
-        System.out.println("\n*** Exercise 8.");
+        System.out.println("\n*** Exercise 8. UNG DUNG QUAN LY CHO MOT HOC VIEN NGHIEN CUU GIANG DAY VA UNG DUNG.");
 
 
         /* ===== */
@@ -368,7 +376,7 @@ public class App {
         studentManager.printAll();
 
         /* ===== */
-        System.out.println("\n*** Exercise 12. XAY DUNG CAC LOP QUAN LY TAI KHOAN NGAN HANG.");
+        System.out.println("\n*** Exercise 12. XAY DUNG CAC LOP QUAN LY TAI KHOAN NGAN HANG. (Yeu cau chua hop ly)");
 
 
     }
