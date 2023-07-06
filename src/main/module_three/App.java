@@ -312,17 +312,16 @@ public class App {
         Product product6 = new ElectricProduct("ECO001", "Noi com dien", 550000.0, 8, 12, 1100);
         Product product7 = new FoodProduct("FFI001", "Ca dieu hong", 80000.0, 10, "VietSeafood", LocalDate.of(2023,7,5), LocalDate.of(2023,7,7));
 
-        ProductManager productManager = new ProductManager(10);
-        productManager.add(product1);
-        productManager.add(product2);
-        productManager.add(product3);
-        productManager.add(product4);
-        productManager.add(product5);
-        productManager.add(product6);
-        productManager.add(product7);
+        ProductList productList = new ProductList();
+        productList.add(product1);
+        productList.add(product2);
+        productList.add(product3);
+        productList.add(product4);
+        productList.add(product5);
+        productList.add(product6);
+        productList.add(product7);
 
-        flag = false;
-        ProductManager.runMenu(productManager, flag);
+        productList.runMenu(flag);
 
         /* ===== */
         System.out.println("\n*** Exercise 8. UNG DUNG QUAN LY CHO MOT HOC VIEN NGHIEN CUU GIANG DAY VA UNG DUNG.");

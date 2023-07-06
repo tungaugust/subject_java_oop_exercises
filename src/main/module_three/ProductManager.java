@@ -105,7 +105,7 @@ public class ProductManager {
             );
         }
         if (productType.equals(FOOD_PRODUCT)){
-            headerLine = headerLine = String.format("%-10s %-15s %15s %15s %-15s %15s %15s %-25s"
+            headerLine = String.format("%-10s %-15s %15s %15s %-15s %15s %15s %-25s"
                     , "MA HANG", "TEN HANG", "DON GIA", "SO LUONG TON", "NHA CUNG CAP", "NGAY SAN XUAT", "NGAY HET HAN", "DANH GIA MUC DO BAN BUON"
             );
         }
@@ -285,6 +285,8 @@ public class ProductManager {
     public static void runMenu(ProductManager productManager, boolean flag){
         Scanner scanner = new Scanner(System.in);
         int opt = 0;
+        String input;
+        String productCode;
         while (flag){
             System.out.println("\n\n---------- MENU ----------");
             System.out.println("\t1. Them hang hoa vao danh sach.");
@@ -300,8 +302,14 @@ public class ProductManager {
             System.out.println("--------------------------");
             System.out.print("\nNhap tuy chon [ 1 - 9 ]: ");
 
-            opt = Integer.valueOf(normalization(scanner.nextLine()));
-            String productCode;
+            input = normalization(scanner.nextLine());
+            // Kiem tra chuoi co phai la chu so nguyen hay khong (regex).
+            if (input.matches("\\d")){
+                opt = Integer.valueOf(input);
+            } else {
+                opt = 0;
+            }
+
             switch (opt) {
                 case 1:
                     System.out.println("Nhap hang hoa muon them vao danh sach:");
