@@ -303,7 +303,8 @@ public class App {
         }
 
         /* ===== */
-        System.out.println("\n*** Exercise 7.");
+        System.out.println("\n*** Exercise 7. QUAN LY HANG HOA.");
+
         Product product1 = new FoodProduct("FCH001", "Thit ga", 40000.0, 20, "Ba Huan", LocalDate.of(2023,7,2), LocalDate.of(2023,7,8));
         Product product2 = new CrockeryProduct("CDI001", "Dia sanh", 110000.0, 40, "Minh Long", LocalDate.of(2023,6,20));
         Product product3 = new ElectricProduct("EIR001", "Tu lanh", 350000.0, 33, 36, 400);
@@ -321,11 +322,31 @@ public class App {
         productList.add(product6);
         productList.add(product7);
 
+        flag = false;
         productList.runMenu(flag);
 
         /* ===== */
         System.out.println("\n*** Exercise 8. UNG DUNG QUAN LY CHO MOT HOC VIEN NGHIEN CUU GIANG DAY VA UNG DUNG.");
 
+        Person person1 = new StudentNeo("Pham Chinh", "Binh Duong", 7.5, 8.0);
+        Person person2 = new Employee("Nguyen Van Sy", "Ca Mau",2.5);
+        Person person3 = new StudentNeo("Ho Nguyen", "Ho Chi Minh", 6.0, 5.5);
+        Person person4 = new StudentNeo("Duong Chanh Nghia", "Ben Tre", 4.5, 7.0);
+        Person person5 = new Employee("Le Van Loc", "Kien Giang",2.8);
+        Person person6 = new Customer("Tran Ngoc Le", "Long An", "ABC Company",15000000.0,"tot");
+        Person person7 = new Customer("Chau Minh Anh", "Dong Nai", "ZXY Company",11000000.0,"tam duoc");
+
+        Management management = new Management();
+        management.add(person1);
+        management.add(person2);
+        management.add(person3);
+        management.add(person4);
+        management.add(person5);
+        management.add(person6);
+        management.add(person7);
+
+        flag = false;
+        management.runMenu(flag);
 
         /* ===== */
         System.out.println("\n*** Exercise 9. DA HINH, VE HINH");

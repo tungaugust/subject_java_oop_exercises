@@ -370,7 +370,7 @@ public class ProductList {
                     );
                     System.out.print("Nhap: ");
                     inputType = Integer.valueOf(normalization(scanner.nextLine()));
-                    Product sample = new FoodProduct("FFI002", "Ca basa", 60000.0, 8, "VietSeafood", LocalDate.of(2023,7,5), LocalDate.of(2023,7,7));;
+                    Product sample = new FoodProduct("FFI002", "Ca basa", 60000.0, 8, "VietSeafood", LocalDate.of(2023,7,5), LocalDate.of(2023,7,7));
                     boolean productValid = true;
                     switch (inputType){
                         case 1:
