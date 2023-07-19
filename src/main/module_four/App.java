@@ -62,7 +62,6 @@ public class App {
         company.register(staff7);
         company.printRegisterStaffList();
 
-
         /* ===== */
         System.out.println("\n*** Exercise 2. LAM QUEN VOI HashMap.");
         flag = false;
@@ -79,7 +78,42 @@ public class App {
         System.out.println("\n*** Exercise 5. SKIP.");
 
         /* ===== */
-        System.out.println("\n*** Exercise 6. ");
+        System.out.println("\n*** Exercise 6. QUAN LY CAC PHONG TAI MOT TRUONG DAI HOC.");
+        UniversityRoom room1 = new TheoryRoom("TR001", "A", 105, 10, true);
+        UniversityRoom room2 = new TheoryRoom("TR002", "A", 100, 10, true);
+        UniversityRoom room3 = new TheoryRoom("TR003", "B", 100, 12, false);
+        UniversityRoom room4 = new TheoryRoom("TR004", "B", 100, 11, false);
+        UniversityRoom room5 = new TheoryRoom("TR005", "B", 100, 12, true);
+        UniversityRoom room6 = new TheoryRoom("TR006", "C", 100, 9, true);
+        UniversityRoom room7 = new ComputerRoom("CR001", "A", 100, 10, 67);
+        UniversityRoom room8 = new ComputerRoom("CR002", "C", 100, 10, 67);
+        UniversityRoom room9 = new ComputerRoom("CR003", "B", 100, 20, 67);
+        UniversityRoom room10 = new ComputerRoom("CR004", "B", 100, 9, 70);
+        UniversityRoom room11 = new Laboratory("LR001", "B", 100, 12, "Ky thuat may tinh", 10, true);
+        UniversityRoom room12 = new Laboratory("LR002", "A", 100, 9, "Cong nghe thong tin", 10, true);
+        UniversityRoom room13 = new Laboratory("LR003", "C", 100, 10, "Ky thuat phan mem", 10, false);
+        UniversityRoom room14 = new Laboratory("LR004", "C", 100, 11, "Khoa hoc may tinh", 10, true);
+        UniversityRoom room15 = new Laboratory("LR005", "A", 100, 20, "Khoa hoc du lieu", 10, false);
+
+        RoomManagement roomManagement = new RoomManagement();
+        roomManagement.add(room1);
+        roomManagement.add(room2);
+        roomManagement.add(room3);
+        roomManagement.add(room4);
+        roomManagement.add(room5);
+        roomManagement.add(room6);
+        roomManagement.add(room7);
+        roomManagement.add(room8);
+        roomManagement.add(room9);
+        roomManagement.add(room10);
+        roomManagement.add(room11);
+        roomManagement.add(room12);
+        roomManagement.add(room13);
+        roomManagement.add(room14);
+        roomManagement.add(room15);
+
+        flag = true;
+        roomManagement.runMenu(flag);
 
         /* ===== */
         System.out.println("\n*** Exercise 7. ");
